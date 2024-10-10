@@ -1,0 +1,20 @@
+@startuml
+
+skinparam linetype ortho
+
+#foreach($entity in $entities)
+entity $entity.tableName {
+  #foreach($pk in $entity.pks)
+    +$pk
+  #end
+    --
+  #foreach($column in $entity.columns)
+    $column
+  #end
+}
+#end
+
+#foreach($relationship in $relationships)
+$relationship.parentTable --{ $relationship.childTable :$relationship.constraintName
+#end
+@enduml

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: er_generator
+  datasource:
+    url: jdbc:postgresql://psql-dyf-flexi-dev.postgres.database.azure.com:5432/yms_db1
+    username: yi_app
+    password: kjsdhf4knAj_
+    driver-class-name: org.postgresql.Driver

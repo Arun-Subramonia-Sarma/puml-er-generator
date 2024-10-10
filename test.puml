@@ -1,0 +1,24 @@
+@startuml
+
+
+skinparam linetype ortho
+
+entity Customer {
+  +id : int
+  +orderId : int
+  --
+  name : varchar
+}
+
+entity CustomerOrder {
+  +customerId : int
+  +orderId : int
+  --
+  orderDate : date
+}
+
+CustomerOrder --{ Customer : appointments_inbound_trailer_id_fkey
+CustomerOrder }-- Customer : appointments_outnbound_trailer_id_fkey
+
+
+@enduml
