@@ -1,5 +1,6 @@
 package com.fk.facilities.dy.er.generator.service;
 
+import com.fk.facilities.dy.er.generator.config.properties.PumlProperties;
 import com.fk.facilities.dy.er.generator.creator.EntityCreator;
 import com.fk.facilities.dy.er.generator.dao.DatabaseDAO;
 import com.fk.facilities.dy.er.generator.models.TableModel;
@@ -24,6 +25,9 @@ public class DatabaseService {
 
     @NonNull
     private final FileUtilityService fileUtilityService;
+
+    @NonNull
+    private final PumlProperties pumlProperties;
 
 
     public List<String> getPublicTableNames(){
@@ -69,7 +73,7 @@ public class DatabaseService {
 //
 //                })
 //                .collect(Collectors.toList());
-        fileUtilityService.write2File(content,"dyf.entity.puml");
+        fileUtilityService.write2File(content,pumlProperties.getFilename());
         return content;
     }
     public List<String> getPUMLEntities() throws IOException {

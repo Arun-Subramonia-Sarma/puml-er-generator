@@ -1,5 +1,6 @@
 package com.fk.facilities.dy.er.generator.controller;
 
+import com.fk.facilities.dy.er.generator.config.properties.VelocityProperties;
 import com.fk.facilities.dy.er.generator.dao.DatabaseDAO;
 import com.fk.facilities.dy.er.generator.service.DatabaseService;
 import lombok.NonNull;
@@ -14,6 +15,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 @RestController
 @RequestMapping("/database")
@@ -23,6 +25,9 @@ public class GreetingController {
 
     @NonNull
     DatabaseService databaseService;
+
+    @NonNull
+    VelocityProperties velocityProperties;
 
     @GetMapping("/table")
     public List<String> getPublicTableNames(){
@@ -57,4 +62,8 @@ public class GreetingController {
         return databaseService.getTableKeyColumns();
     }
 
+    @GetMapping("/velocity")
+    public Properties getVelocityProperties(){
+        return velocityProperties.getProperties();
+    }
 }

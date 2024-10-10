@@ -2,7 +2,21 @@ spring:
   application:
     name: er_generator
   datasource:
-    url: jdbc:postgresql://psql-dyf-flexi-dev.postgres.database.azure.com:5432/yms_db1
-    username: yi_app
-    password: kjsdhf4knAj_
-    driver-class-name: org.postgresql.Driver
+    url: ${JDBC_URL}
+    username: ${JDBC_USER}
+    password: ${JDBC_PASSWORD}
+#    driver-class-name: org.postgresql.Driver
+velocity:
+  template: entity.diagram.vm
+  properties:
+    resource:
+      loader: file
+    file:
+      resource:
+        loader:
+          class: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+          cache: true
+          modificationCheckInterval: "60"
+puml:
+  filename: ${ER_PUML_FILE_NAME:dyf.entity.puml}
+

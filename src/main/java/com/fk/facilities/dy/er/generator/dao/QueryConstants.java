@@ -53,6 +53,8 @@ public interface QueryConstants {
                 table_schema='public'
                 and table_name not like '%partition%'
                 and table_name not like '%default'
+                and table_name not like 'databasechange%'
+                and table_name not like 'pg%'
             ORDER BY
                 table_name,
                 ordinal_position
